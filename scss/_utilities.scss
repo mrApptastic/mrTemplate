@@ -1,0 +1,68 @@
+/* Methods for Generating Classes for Material Color Themes */
+
+@function colorMap($baseColors, $variations) {
+    $colors:();
+    
+    @each $color, $value in $baseColors {
+      $maxVar: 36;
+      $mid: $variations / 2;
+      $dist: $mid - 1;
+      $step: $maxVar / $dist;
+      
+      // lighten and darken
+      @for $i from 1 through $dist {
+        $percent: $maxVar - ($step * ($i - 1));
+        $darken: ($variations - $i) * 100;
+        $lighten: $i * 100;
+  
+        $colors: map-merge($colors, (
+           #{$color}-#{$lighten}: lighten($value, $percent),
+           #{$color}-#{$darken}:  darken($value, $percent)
+        ));
+      }
+  
+      $colors: map-merge($colors, (#{$color}-50: lighten($value, 38.7)));
+      $colors: map-merge($colors, (#{$color}-#{$variations/2*100}: $value));
+    }
+    @return $colors;
+  }
+  
+  @each $color, $value in colorMap($baseColors, 10) {
+    .#{$color} { 
+      background-color: $value !important;
+      color: set-text-color($value);
+    }
+  
+    .#{$color} > h1, 
+    .#{$color} > h2,
+    .#{$color} > h3,
+    .#{$color} > h4,
+    .#{$color} > h5,
+    .#{$color} > h6,
+    .#{$color} > p,
+    .#{$color} > em,
+    .#{$color} > span,
+    .#{$color} > strong,
+    .#{$color} > small,
+    .#{$color} > li {
+      color: set-text-color($value) !important;
+    }
+  
+    .text-#{$color} { 
+      color: $value !important;
+    }
+  }
+
+.full-page {
+  height: 100vh; 
+  width: 100vw; 
+  overflow: hidden;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.text-inverted {
+    color: $theme-text-light !important;
+}

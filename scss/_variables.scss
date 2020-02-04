@@ -1,0 +1,55 @@
+/* Theme Text Color */
+$theme-text-base: black;
+$theme-text-light: aliceblue;
+
+/* Theme Primary Colors */
+$theme-primary-base: rebeccapurple;
+
+/* Theme Secondary Colors */
+$theme-secondary-base: gold;
+
+/* Theme Success Colors */
+$theme-success-base: lime;
+
+/* Theme Danger Colors */
+$theme-danger-base: tomato;
+
+/* Theme Warning Colors */
+$theme-warning-base: magenta;
+
+/* Theme Info Colors */
+$theme-info-base: cyan;
+
+/* Theme Light Colors */
+$theme-light-base: ghostwhite;
+
+/* Theme Dark Colors */
+$theme-dark-base: black;
+
+/* Theme Tertiary Colors */
+$theme-tertiary-base: greenyellow;
+
+/* Theme Quaternary Colors */
+$theme-quaternary-base: peachpuff;
+
+/* Theme Quinary Colors */
+$theme-quinary-base: hotpink;
+
+/* Theme Senary Colors */
+$theme-senary-base: darkgoldenrod;
+
+/* Base Colors For Theming Components */
+$baseColors: (
+  primary: $theme-primary-base,
+  secondary: $theme-secondary-base,
+  success: $theme-success-base,
+  danger: $theme-danger-base,
+  warning: $theme-warning-base,
+  info: $theme-info-base,
+  light: $theme-light-base,
+  dark: $theme-dark-base,
+  tertiary: $theme-tertiary-base,
+  quaternary: $theme-quaternary-base,
+  quinary: $theme-quinary-base,
+  senary: $theme-senary-base
+);

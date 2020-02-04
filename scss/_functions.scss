@@ -1,0 +1,59 @@
+/* Theme Color Methods */
+
+@function theme-hover($base) {
+    @return darken($base, 5%);
+}
+
+@function theme-border($base) {
+    @return darken($base, 10%);
+}
+
+@function theme-border-2($base) {
+    @return darken($base, 20%);
+}
+
+@function theme-transparent($base) {
+    @return rgba($base, 0.5);
+}
+
+@function theme-transparent-2($base) {
+    @return rgba(lighten($base, 5%), 0.5);
+}
+
+@function theme-alert($base) {
+    @return lighten($base, 35%);
+}
+
+@function theme-alert-link($base) {
+    @return darken($base, 30%);
+}
+
+@function theme-text-hover($base) {
+    @return darken($base, 30%);
+}
+
+@function theme-list-group($base) {
+    @return darken($base, 30%);
+}
+
+@function theme-light-base($base) {
+    @return lighten($base, 30%);
+}
+
+@function theme-light-border($base) {
+    @return lighten($base, 30%);
+}
+
+@function theme-light-hover($base) {
+    @return lighten($base, 25%);
+}
+
+@function set-text-color($color) {
+    @if (lightness($color) >= 50) {
+      @return $theme-text-base;
+    } @else {
+      @return $theme-text-light;
+    }
+}
+
+

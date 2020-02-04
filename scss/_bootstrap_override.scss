@@ -1,0 +1,220 @@
+/* START General Overrides */
+
+.jumbotron {
+  color: set-text-color($theme-secondary-base) !important;
+  background: $theme-secondary-base !important;
+}
+
+.nav-pills .nav-link.active {
+  color: set-text-color($theme-primary-base) !important;
+  background: $theme-primary-base !important;
+}
+
+.nav-link.active {
+  color: theme-light-hover($theme-secondary-base) !important;
+  font-weight: 900;
+}
+
+/* END General Overrides */
+
+/* START Theme Overrides */
+@each $color, $value in $baseColors { 
+  .table-#{$color},
+  .table-#{$color} > th,
+  .table-#{$color} > td {
+    background-color: theme-light-base($value) !important;
+  }
+  
+  .table-#{$color} th,
+  .table-#{$color} td,
+  .table-#{$color} thead th,
+  .table-#{$color} tbody + tbody {
+    border-color: theme-light-border($value) !important;
+  }
+  
+  .table-hover .table-#{$color}:hover {
+    background-color: theme-light-hover($value) !important;
+  }
+  
+  .table-hover .table-#{$color}:hover > td,
+  .table-hover .table-#{$color}:hover > th {
+    background-color: theme-light-hover($value) !important;
+  }
+  
+  .btn-#{$color} {
+    color: set-text-color($value) !important;
+    background-color: $value !important;
+    border-color: $value !important;
+  }
+  
+  .btn-#{$color}:hover {
+    color: set-text-color(theme-hover($value)) !important;
+    background-color: theme-hover($value) !important;
+    border-color: theme-border($value) !important;
+  }
+  
+  .btn-#{$color}:focus, .btn-#{$color}.focus {
+    color: set-text-color(theme-hover($value)) !important;
+    background-color: theme-hover($value) !important;
+    border-color: theme-border($value) !important;
+    box-shadow: 0 0 0 0.2rem theme-transparent-2($value) !important;
+  }
+  
+  .btn-#{$color}.disabled, .btn-#{$color}:disabled {
+    color: set-text-color($value) !important;
+    background-color: $value !important;
+    border-color: $value !important;
+  }
+  
+  .btn-#{$color}:not(:disabled):not(.disabled):active, .btn-#{$color}:not(:disabled):not(.disabled).active,
+  .show > .btn-#{$color}.dropdown-toggle {
+    color: set-text-color(theme-border($value)) !important;
+    background-color: theme-border($value) !important;
+    border-color: theme-border-2($value) !important;
+  }
+  
+  .btn-#{$color}:not(:disabled):not(.disabled):active:focus, .btn-#{$color}:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-#{$color}.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem theme-transparent-2($value) !important;
+  }
+  
+  .btn-outline-#{$color} {
+    color: set-text-color($value) !important;
+    border-color: $value !important;
+  }
+  
+  .btn-outline-#{$color}:hover {
+    color: set-text-color($value) !important;
+    background-color: $value !important;
+    border-color: $value !important;
+  }
+  
+  .btn-outline-#{$color}:focus, .btn-outline-#{$color}.focus {
+    box-shadow: 0 0 0 0.2rem theme-transparent($value) !important;
+  }
+  
+  .btn-outline-#{$color}.disabled, .btn-outline-#{$color}:disabled {
+    color: $value !important;
+    background-color: transparent;
+  }
+  
+  .btn-outline-#{$color}:not(:disabled):not(.disabled):active, .btn-outline-#{$color}:not(:disabled):not(.disabled).active,
+  .show > .btn-outline-#{$color}.dropdown-toggle {
+    color: set-text-color($value) !important;
+    background-color: $value !important;
+    border-color: $value !important;
+  }
+  
+  .btn-outline-#{$color}:not(:disabled):not(.disabled):active:focus, .btn-outline-#{$color}:not(:disabled):not(.disabled).active:focus,
+  .show > .btn-outline-#{$color}.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem theme-transparent($value) !important;
+  }
+  
+  .badge-#{$color} {
+    color: set-text-color($value) !important;
+    background-color: $value !important;
+  }
+  
+  a.badge-#{$color}:hover, a.badge-#{$color}:focus {
+    color: set-text-color(theme-border($value)) !important;
+    background-color: theme-border($value) !important;
+  }
+  
+  a.badge-#{$color}:focus, a.badge-#{$color}.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem theme-transparent($value) !important;
+  }
+  
+  .alert-#{$color} {
+    color: set-text-color(theme-alert($value)) !important;
+    background-color: theme-alert($value) !important;
+    border-color: theme-light-base($value) !important;
+  }
+  
+  .alert-#{$color} hr {
+    border-top-color: theme-light-hover($value) !important;
+  }
+  
+  .alert-#{$color} .alert-link {
+    color: theme-alert($value)-link !important;
+  }
+  
+  .list-group-item-#{$color} {
+    color: set-text-color(theme-light-base($value)) !important;
+    background-color: theme-light-base($value) !important;
+  }
+  
+  .list-group-item-#{$color}.list-group-item-action:hover, .list-group-item-#{$color}.list-group-item-action:focus {
+    color: set-text-color(theme-light-hover($value)) !important;
+    background-color: theme-light-hover($value) !important;
+  }
+  
+  .list-group-item-#{$color}.list-group-item-action.active {
+    color: set-text-color(theme-list-group($value)) !important;
+    background-color: theme-list-group($value) !important;
+    border-color: theme-list-group($value) !important;
+  }
+  
+  .bg-#{$color} {
+    background-color: $value !important;
+  }
+
+  .bg-#{$color} > a {
+    color: set-text-color($value) !important;
+  }
+  
+  .bg-#{$color} > div > ul > li > a {
+    color: set-text-color($value) !important;
+  }
+
+  a.bg-#{$color}:hover, a.bg-#{$color}:focus,
+  button.bg-#{$color}:hover,
+  button.bg-#{$color}:focus {
+    background-color: theme-border($value) !important;
+  }
+  
+  .border-#{$color} {
+    border-color: $value !important;
+  }
+  
+  .text-#{$color} {
+    color: $value !important;
+  }
+  
+  a.text-#{$color}:hover, a.text-#{$color}:focus {
+    color: theme-text-hover($value) !important;
+  } 
+
+  .card .card-#{$color},
+  .card .card-#{$color} .card-header,
+  .panel .card-#{$color} {
+    background-color: $value !important;
+  }
+
+  .card-#{$color} .card-header .panel-title .accordion-toggle .btn-link {
+    color: set-text-color($value) !important;
+  }
+
+  .panel .card-#{$color} .panel-body {
+    background-color: white;
+    color: $theme-text-base;
+  }
+} 
+/* END Theme Overrides */
+
+/* START Ngx-Toastr Overrides */
+
+.toast-success {
+  background-color: $theme-primary-base !important;
+}
+.toast-error {
+  background-color: $theme-danger-base !important;
+}
+.toast-info {
+  background-color: $theme-secondary-base !important;
+}
+.toast-warning {
+  background-color: $theme-warning-base !important;
+}
+
+/* END Ngx-Toastr Overrides */
